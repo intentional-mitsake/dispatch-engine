@@ -30,4 +30,8 @@ class DispatchController extends Controller
         ]);
         return response()->json(['message' => 'Dispatch created successfully', 'data' => $dispatch], 201);
     }
+
+    public function show(Dispatch $dispatch) {
+        return response()->json(['message' => 'Dispatch retrieved successfully', 'data' => $dispatch], 200);
+    }
 }

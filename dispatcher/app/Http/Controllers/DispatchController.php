@@ -13,13 +13,11 @@ class DispatchController extends Controller
             'payload' => 'required|array',
         ]);
 
-        $dispatch = Dispatch::create(
+        $dispatch = Dispatch::create([
             'type' => $validated['type'],
             'payload' => $validated['payload'],
             'idempotency_key' => Str::uuid(), // generate unique id
-            'status' => 'pending',
-            'available_at' => now(),
-        );
+        ]);
         return response()->json(['message' => 'Dispatch created successfully', 'data' => $dispatch], 201);
     }
 }

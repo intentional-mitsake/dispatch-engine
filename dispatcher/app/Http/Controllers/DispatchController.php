@@ -32,6 +32,10 @@ class DispatchController extends Controller
     }
 
     public function show(Dispatch $dispatch) {
+        // we have {dispatch} in the route, laravel auto looks for method with parameter with the same name
+        // so this func is called, $dispatch is an Eloquent model so laravel auto queries the database with the given value
+        // it doe select * from dispatches where id = $dispatch as id is primary key
+        // unless u tell it to not look for primary key, it will look for id auto
         return response()->json(['message' => 'Dispatch retrieved successfully', 'data' => $dispatch], 200);
     }
 }

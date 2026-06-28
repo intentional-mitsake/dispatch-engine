@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class DispatchController extends Controller
 {
-    public function req(Request $request) {  // Post request
+    public function store(Request $request) {  // Post request
         $validated = $request->validate([ // validate incoming request-->for things like sql injection
             'type' => 'required|string',
             'payload' => 'required|array',

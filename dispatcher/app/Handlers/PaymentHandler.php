@@ -13,17 +13,10 @@ class PaymentHandler
         if (rand(1, 5) === 1) {
            throw new \Exception('Payment failed');
         }
-
+        // logs to the logs/laravel.log file
         logger("Payment completed for dispatch {$dispatch->payload['customer_id']}");
-    }
-
-    private function process(Dispatch $dispatch) {
-       match($dispatch->type) {// match is like switch case
-           'payment' => (new PaymentHandler())->handle($dispatch),// if payment then call payment handler
-       };
-
-       $dispatch->update([
-           'status' => 'completed'
-       ])
+        // to print to the console
+        echo "Payment completed for dispatch {$dispatch->payload['customer_id']}\n";
+        
     }
 }

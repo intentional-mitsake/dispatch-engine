@@ -6,19 +6,15 @@ use Illuminate\Console\Attributes\Description;
 use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
 use App\Models\Dispatch;
+use App\Handlers\PaymentHandler;
 
-#[Signature('app:dispatch-command')]
-#[Description('Command description')]
+#[Signature('worker:claim')]
+#[Description('Claim pending jobs')]
 class DispatchCommand extends Command
 {
     /**
      * Execute the console command.
      */
-    protected $signature = 'queue:claim'; // actual name of the command
-
-    protected $description = 'Claim pending jobs'; //descp for list
-
-
     public function handle()
     {
         while(true) {
@@ -33,9 +29,17 @@ class DispatchCommand extends Command
 
     private function process(Dispatch $dispatch) {
         $dispatch->update([
-            'status' => 'processing'
+            'status' => 'processing',
             'claimed_at' => now(),
             'claimed_by' => gethostname(),// get current hostname-->.i.e localhost
-        ])
+        ]);
+
+        match($dispatch->type) {// match is like switch case
+           'payment' => (new PaymentHandler())->handle($dispatch),// if payment then call payment handler
+       };
+
+       $dispatch->update([
+           'status' => 'completed'
+       ]);
     }
 }

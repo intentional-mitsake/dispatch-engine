@@ -14,6 +14,11 @@ class DispatchCommand extends Command
     /**
      * Execute the console command.
      */
+    protected $signature = 'queue:claim'; // actual name of the command
+
+    protected $description = 'Claim pending jobs'; //descp for list
+
+
     public function handle()
     {
         while(true) {

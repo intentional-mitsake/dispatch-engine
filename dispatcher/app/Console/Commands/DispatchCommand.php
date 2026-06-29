@@ -8,6 +8,7 @@ use Illuminate\Console\Command;
 use App\Models\Dispatch;
 use App\Handlers\PaymentHandler;
 use App\DispatchClaimer;
+use Illuminate\Support\Facades\Log;
 
 #[Signature('worker:claim')]
 #[Description('Claim pending jobs')]
@@ -22,9 +23,11 @@ class DispatchCommand extends Command
             $claimedDispatch = (new DispatchClaimer())->claim();
             if(!$claimedDispatch) {
                 sleep(4);// sleep for 4 seconds
+                Log::info('No jobs to process: Sleeping');
                 continue;
             }
             $this->process($claimedDispatch);
+            Log::info("Job {$claimedDispatch->id} proessing started");
         }
     }
 
@@ -36,11 +39,14 @@ class DispatchCommand extends Command
            $dispatch->update([
                'status' => 'completed'
            ]);
+           Log::info("Job {$dispatch->id} proessing completed");
         } catch(\Exception $e) {
             $dispatch->update([
                 'status' => 'failed',
                 'failed_at' => now(),
             ]);
+            logger($e->getMessage());
+            Log::error("Job {$dispatch->id} proessing failed");
         }
     }
 }

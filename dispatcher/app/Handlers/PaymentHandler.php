@@ -3,6 +3,7 @@
 namespace App\Handlers;
 
 use App\Models\Dispatch;
+use Illuminate\Support\Facades\Log;
 
 class PaymentHandler
 {
@@ -11,12 +12,12 @@ class PaymentHandler
         sleep(rand(1, 10));// sleep for random amount of time from 1 to 10 seconds
 
         if (rand(1, 5) === 1) {
+           Log::error("Payment failed for dispatch {$dispatch->payload['customer_id']}");
            throw new \Exception('Payment failed');
         }
         // logs to the logs/laravel.log file
         logger("Payment completed for dispatch {$dispatch->payload['customer_id']}");
-        // to print to the console
-        echo "Payment completed for dispatch {$dispatch->payload['customer_id']}\n";
+        Log::info("Payment completed for dispatch {$dispatch->payload['customer_id']}");
         
     }
 }

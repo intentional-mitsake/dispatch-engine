@@ -23,10 +23,12 @@ return new class extends Migration
             $table->string('claimed_by')->nullable(); // which worker claimed the jib
 
             $table->timestamp('claimed_at')->nullable();
+            // this sets to the timezone of DB not UTC
             $table->timestamp('available_at')->useCurrent(); // when the job is available-->current time
             $table->timestamp('failed_at')->nullable();
 
             $table->timestamps(); // in laravel this auto adds created_at and updated_at
+            // also it used UTC timezone
         });
     }
 

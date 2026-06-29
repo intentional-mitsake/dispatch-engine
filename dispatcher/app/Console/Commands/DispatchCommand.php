@@ -22,12 +22,12 @@ class DispatchCommand extends Command
         while(true) {
             $claimedDispatch = (new DispatchClaimer())->claim();
             if(!$claimedDispatch) {
+                Log::debug('No jobs to process: Sleeping');
                 sleep(4);// sleep for 4 seconds
-                Log::info('No jobs to process: Sleeping');
                 continue;
             }
-            $this->process($claimedDispatch);
             Log::info("Job {$claimedDispatch->id} proessing started");
+            $this->process($claimedDispatch);
         }
     }
 
@@ -45,8 +45,7 @@ class DispatchCommand extends Command
                 'status' => 'failed',
                 'failed_at' => now(),
             ]);
-            logger($e->getMessage());
-            Log::error("Job {$dispatch->id} proessing failed");
+            Log::error("Job {$dispatch->id} proessing failed", ['error' => $e->getMessage()]);
         }
     }
 }

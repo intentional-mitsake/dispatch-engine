@@ -19,15 +19,15 @@ class DispatchClaimer
            // pretty much what the name ssays, locks the selected row for update 
            // so that no other proc or db session can modify it till this current transaction is complete
 
-           if ($claimedDispatch) {
-               $claimedDispatch->update([
-                   'status' => 'processing',
-                   'claimed_at' => now(),
-                   'claimed_by' => gethostname(),
-               ]);
-           } else {
+           if (!$claimedDispatch) {
                return null;
            }
+           
+            $claimedDispatch->update([
+                'status' => 'processing',
+                'claimed_at' => now(),
+                'claimed_by' => gethostname(),
+            ]);
 
            return $claimedDispatch;
        });

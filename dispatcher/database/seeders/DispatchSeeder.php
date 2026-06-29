@@ -20,7 +20,7 @@ class DispatchSeeder extends Seeder
                 'available_at' => now(),// this way its set to current time in UTC
                 'payload' => [ 
                     'amount' => rand(1, 100),
-                    'customer_id' => 'user-'. $i . 'test',
+                    'customer_id' => 'user-'. uuid(),
                 ]
             ]);
         }

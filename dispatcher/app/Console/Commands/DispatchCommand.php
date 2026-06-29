@@ -7,6 +7,7 @@ use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
 use App\Models\Dispatch;
 use App\Handlers\PaymentHandler;
+use App\DispatchClaimer;
 
 #[Signature('worker:claim')]
 #[Description('Claim pending jobs')]
@@ -18,28 +19,28 @@ class DispatchCommand extends Command
     public function handle()
     {
         while(true) {
-            $dispatch = Dispatch::where('status', 'pending')->where('available_at', '<=', now())->first();
-            if ($dispatch) {
-                $this->process($dispatch);
-            } else {
-                sleep(4); // if no pending jobs, sleep for 4 seconds
+            $claimedDispatch = (new DispatchClaimer())->claim();
+            if(!$claimedDispatch) {
+                sleep(4);// sleep for 4 seconds
+                continue;
             }
+            $this->process($claimedDispatch);
         }
     }
 
     private function process(Dispatch $dispatch) {
-        $dispatch->update([
-            'status' => 'processing',
-            'claimed_at' => now(),
-            'claimed_by' => gethostname(),// get current hostname-->.i.e localhost
-        ]);
-
-        match($dispatch->type) {// match is like switch case
-           'payment' => (new PaymentHandler())->handle($dispatch),// if payment then call payment handler
-       };
-
-       $dispatch->update([
-           'status' => 'completed'
-       ]);
+        try{// PaymentHandler can throw exception
+             match($dispatch->type) {// match is like switch case
+               'payment' => (new PaymentHandler())->handle($dispatch),// if payment then call payment handler
+           };
+           $dispatch->update([
+               'status' => 'completed'
+           ]);
+        } catch(\Exception $e) {
+            $dispatch->update([
+                'status' => 'failed',
+                'failed_at' => now(),
+            ]);
+        }
     }
 }

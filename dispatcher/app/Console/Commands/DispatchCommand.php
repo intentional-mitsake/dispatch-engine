@@ -9,6 +9,7 @@ use App\Models\Dispatch;
 use App\Handlers\PaymentHandler;
 use App\DispatchClaimer;
 use Illuminate\Support\Facades\Log;
+use App\Handlers\FailureHandler;
 
 #[Signature('worker:claim')]
 #[Description('Claim pending jobs')]
@@ -33,6 +34,7 @@ class DispatchCommand extends Command
 
     private function process(Dispatch $dispatch) {
         try{// PaymentHandler can throw exception
+        //exception when the job fails, so failure is to be handled in catch block
              match($dispatch->type) {// match is like switch case
                'payment' => (new PaymentHandler())->handle($dispatch),// if payment then call payment handler
            };
@@ -41,11 +43,7 @@ class DispatchCommand extends Command
            ]);
            Log::info("Job {$dispatch->id} proessing completed");
         } catch(\Exception $e) {
-            $dispatch->update([
-                'status' => 'failed',
-                'failed_at' => now(),
-            ]);
-            Log::error("Job {$dispatch->id} proessing failed", ['error' => $e->getMessage()]);
+            new FailureHandler()->handle($dispatch, $e);
         }
     }
 }

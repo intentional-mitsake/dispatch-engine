@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Dispatch;
+use Illuminate\Support\Facades\Log;
 
 class FailureHandler {
     private const MAX_ATTEMPTS = 5;
@@ -14,10 +15,12 @@ class FailureHandler {
                 'status' => 'failed',
                 'failed_at' => now(),
             ]);
+            Log::error("Job {$dispatch->id} proessing failed", ['error' => $exception->getMessage()]);
             return;
         }
         // get the delay for the next retry
         $delay = $this->backoffWithJitter($dispatch->attempts);
+        Log::info("Delaying job retry {$dispatch->id} for $delay seconds");
         // update the status to pending, and set the available_at to now + delay 
         // so that it can only be claimed after the delay
         $dispatch->update([

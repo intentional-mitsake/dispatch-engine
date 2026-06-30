@@ -22,6 +22,10 @@ class WatchdogCommand extends Command
                 ->where('claimed_at', '<', now()->subMinutes(self::TIMEOUT_MIN)) // was claimed more than 2 min ago so timeout
                 ->lock('FOR UPDATE SKIP LOCKED')
                 ->get();// retrieve results
+                if (!$stuckDispatches->count()) {
+                    Log::debug('No stuck jobs to recover');
+                    return;
+                }
                 foreach ($stuckDispatches as $dispatch) {
                   Log::debug("Job {$dispatch->id} is currently claimed by {$dispatch->claimed_by}");
                     $dispatch->update([
@@ -33,6 +37,7 @@ class WatchdogCommand extends Command
                     Log::debug("Job {$dispatch->id} is stuck, moving to pending status");
                 }
             });
+            Log::debug('Watchdog is sleeping for 20 seconds');
             sleep(20);// sleep for 20 seconds before checking again
         }
     }

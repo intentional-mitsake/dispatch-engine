@@ -20,7 +20,7 @@ class FailureHandler {
         }
         // get the delay for the next retry
         $delay = $this->backoffWithJitter($dispatch->attempts);
-        Log::info("Delaying job retry {$dispatch->id} for $delay seconds");
+        Log::info("Delaying job {$dispatch->id} retry attempt for $delay seconds");
         // update the status to pending, and set the available_at to now + delay 
         // so that it can only be claimed after the delay
         $dispatch->update([
@@ -31,7 +31,7 @@ class FailureHandler {
 
     private function backoffWithJitter(int $attempt): int {
         $baseDelay = 2 ** $attempt; // exponential backoff--> 2^1, 2^2, 2^3
-        $jitter = rand(0, 3; // jitter to avoid synchronization of retries
+        $jitter = rand(0, 3); // jitter to avoid synchronization of retries
         return $baseDelay + $jitter;
     }
 }

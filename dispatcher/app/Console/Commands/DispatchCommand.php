@@ -9,7 +9,7 @@ use App\Models\Dispatch;
 use App\Handlers\PaymentHandler;
 use App\DispatchClaimer;
 use Illuminate\Support\Facades\Log;
-use App\Handlers\FailureHandlers;
+use App\Handlers\FailureHandler;
 
 #[Signature('worker:claim')]
 #[Description('Claim pending jobs')]
@@ -44,7 +44,7 @@ class DispatchCommand extends Command
            ]);
            Log::info("Job {$dispatch->id} proessing completed");
         } catch(\Exception $e) {
-            new FailureHandlers()->handle($dispatch, $e);
+            (new FailureHandler())->handle($dispatch, $e);
         }
     }
 }

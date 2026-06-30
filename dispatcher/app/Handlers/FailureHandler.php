@@ -3,7 +3,8 @@
 use App\Models\Dispatch;
 use Illuminate\Support\Facades\Log;
 
-class FailureHandler {
+class FailureHandler 
+{
     private const MAX_ATTEMPTS = 5;
     // ref from HackerOne
     public function handle(Dispatch $dispatch, \Throwable $exception) {

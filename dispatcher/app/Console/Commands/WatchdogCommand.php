@@ -20,7 +20,7 @@ class WatchdogCommand extends Command
                 $stuckDispatches = Dispatch::where('status', 'processing')
                 ->where('claimed_at', '<', now()->subMinutes(self::TIMEOUT_MIN)) // was claimed more than 2 min ago so timeout
                 ->lock('FOR UPDATE SKIP LOCKED')
-                ->all();// return all the dispatches that are processing and claimed more than 2 min ago
+                ->get();// retrieve results
                 foreach ($stuckDispatches as $dispatch) {
                 // Log::error("Job {$dispatch->id} is currently claimed by {$dispatch->claimed_by}");
                     $dispatch->update([

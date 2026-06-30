@@ -7,6 +7,7 @@ use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
 use App\Models\Dispatch;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 #[Signature('watchdog:run')]
 #[Description('Run the watchdog process to recover stuck jobs')]
@@ -22,14 +23,14 @@ class WatchdogCommand extends Command
                 ->lock('FOR UPDATE SKIP LOCKED')
                 ->get();// retrieve results
                 foreach ($stuckDispatches as $dispatch) {
-                // Log::error("Job {$dispatch->id} is currently claimed by {$dispatch->claimed_by}");
+                  Log::debug("Job {$dispatch->id} is currently claimed by {$dispatch->claimed_by}");
                     $dispatch->update([
                         'status' => 'pending',
                         //clear the claimed_at and claimed_by
                         'claimed_at' => null,
                         'claimed_by' => null,
                     ]);
-                    Log::error("Job {$dispatch->id} is stuck, moving to pending status");
+                    Log::debug("Job {$dispatch->id} is stuck, moving to pending status");
                 }
             });
             sleep(20);// sleep for 20 seconds before checking again

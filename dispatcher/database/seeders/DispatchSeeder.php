@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Log;
 use App\Models\Dispatch;
+use Illuminate\Support\Str;
 
 class DispatchSeeder extends Seeder
 {
@@ -20,7 +21,7 @@ class DispatchSeeder extends Seeder
                 'available_at' => now(),// this way its set to current time in UTC
                 'payload' => [ 
                     'amount' => rand(1, 100),
-                    'customer_id' => 'user-'. uuid(),
+                    'customer_id' => 'user-'. Str::uuid(),
                 ]
             ]);
         }

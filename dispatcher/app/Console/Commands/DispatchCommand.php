@@ -35,7 +35,7 @@ class DispatchCommand extends Command
     private function process(Dispatch $dispatch) {
         try{// PaymentHandler can throw exception
         //exception when the job fails, so failure is to be handled in catch block
-        $failure = true;// flag to check if job failed
+        //$failure = true;// flag to check if job failed
              match($dispatch->type) {// match is like switch case
                'payment' => (new PaymentHandler())->handle($dispatch, $failure),// if payment then call payment handler
            };

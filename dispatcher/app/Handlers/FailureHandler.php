@@ -34,7 +34,7 @@ class FailureHandler
 
     private function backoffWithJitter(int $attempt): int {
         $baseDelay = 2 ** $attempt; // exponential backoff--> 2^1, 2^2, 2^3
-        $jitter = rand(0, 3); // jitter to avoid synchronization of retries
+        $jitter = rand(0, 3); // jitter to avoid synchronization of retries-->strains the server with many retry attempts from dff clients slimultaneously
         return $baseDelay + $jitter;
     }
 }

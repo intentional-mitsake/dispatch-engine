@@ -15,7 +15,9 @@ class DispatchClaimer
         // while using auto method, rollback and commit is handled automatically
        return DB::transaction(function () {// takes in closure(anon func) & thru use keyword can access external vars --> function () use $stuff {}
            $claimedDispatch = Dispatch::where('status', 'pending')->where('available_at', '<=', now())
-           ->lockForUpdate()->first(); 
+           ->lockForUpdate()
+           ->skiplocked()// skip dispatches that are already claimed/locked by other proc/transactiosn
+           ->first(); 
            // pretty much what the name ssays, locks the selected row for update 
            // so that no other proc or db session can modify it till this current transaction is complete
 

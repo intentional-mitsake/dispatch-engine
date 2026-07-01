@@ -11,6 +11,8 @@ class DispatchController extends Controller
         $validated = $request->validate([ // validate incoming request-->for things like sql injection
             'type' => 'required|string',
             'payload' => 'required|array',
+            'payload.amount' => 'required_if:type,payment|numeric|min:0.01', // if type is payment then amount is required and must be a positive number
+            'payload.customer_id' => 'required_if:type,payment|string', // if type is payment then customer_id is required and must be a string
             'idempotency_key' => 'required|string',
         ]);
 

@@ -14,6 +14,14 @@ class PaymentHandler
             Log::error("Payment failed for dispatch {$dispatch->payload['customer_id']}");
             throw new \Exception('Payment failed');
         }
+
+        $amount = $dispatch->payload['amount'] ?? null;
+        $customerId = $dispatch->payload['customer_id'] ?? null;
+        if (!$amount || !$customerId) {
+            Log::error("Payment failed for dispatch {$dispatch->payload['customer_id']}");
+            throw new \Exception('Payment failed: Missing amount or customer_id');
+        }
+
         // this function purely simulates payment process so that we can try out diff cases
         sleep(rand(1, 10));// sleep for random amount of time from 1 to 10 seconds
         // no need to retry if its already charged, so putting this before retry initiation block

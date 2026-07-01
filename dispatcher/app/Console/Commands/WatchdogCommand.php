@@ -24,7 +24,7 @@ class WatchdogCommand extends Command
                 ->get();// retrieve results
                 if (!$stuckDispatches->count()) {
                     Log::debug('No stuck jobs to recover');
-                    return;
+                    return; // exits out of the transaction NOT the while loop
                 }
                 foreach ($stuckDispatches as $dispatch) {
                   Log::debug("Job {$dispatch->id} is currently claimed by {$dispatch->claimed_by}");

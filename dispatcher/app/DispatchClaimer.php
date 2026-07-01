@@ -5,6 +5,7 @@ namespace App;
 use App\Models\Dispatch;
 // DB facade helps write raw SQL queries without ORM like ELoquent, its built in
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class DispatchClaimer
 {

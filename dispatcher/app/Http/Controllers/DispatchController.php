@@ -15,6 +15,8 @@ class DispatchController extends Controller
             'payload' => 'required|array',
             'payload.amount' => 'required_if:type,payment|numeric|min:0.01', // if type is payment then amount is required and must be a positive number
             'payload.customer_id' => 'required_if:type,payment|string', // if type is payment then customer_id is required and must be a string
+            'payload.product_id' => 'required_if:type,inventory|numeric|min:1', // if type is inventory then product_id is required and must be a positive number
+            'payload.quantity' => 'required_if:type,inventory|numeric|min:1', // if type is inventory then quantity is required and must be a positive number
             'idempotency_key' => 'required|string',
         ]);
         Log::info("Dispatch request received: " . json_encode($validated));

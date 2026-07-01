@@ -10,6 +10,7 @@ use App\Handlers\PaymentHandler;
 use App\DispatchClaimer;
 use Illuminate\Support\Facades\Log;
 use App\Handlers\FailureHandler;
+use App\Handlers\InventoryHandler;
 
 #[Signature('worker:claim')]
 #[Description('Claim pending jobs')]
@@ -38,6 +39,7 @@ class DispatchCommand extends Command
         //$failure = true;// flag to check if job failed
              match($dispatch->type) {// match is like switch case
                'payment' => (new PaymentHandler())->handle($dispatch, false),// if payment then call payment handler
+               'inventory' => (new InventoryHandler())->handle($dispatch),// if inventory then call inventory handler
            };
            $dispatch->update([
                'status' => 'completed'

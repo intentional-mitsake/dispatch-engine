@@ -25,5 +25,16 @@ class DispatchSeeder extends Seeder
                 ]
             ]);
         }
+        foreach (range(1, 20) as $i) {
+            Dispatch::create([
+                'type' => 'inventory',
+                'idempotency_key' => 'inv-ord-' . $i,
+                'available_at' => now(),
+                'payload' => [
+                    'product_id' => rand(1, 10),
+                    'quantity' => rand(1, 5),
+                ]
+            ]);
+        }
     }
 }

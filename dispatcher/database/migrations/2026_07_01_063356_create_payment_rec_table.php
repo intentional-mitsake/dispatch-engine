@@ -12,7 +12,9 @@ return new class extends Migration
             $table->id();
             //id() is of bigint type and is auto incrementing primary key
             $table->unsignedBigInteger('dispatch_id')->unique(); // foreign key to dispatches table
-            $table->string('status');
+            //doesnt need status--> if the payment record exists, it means the payment is successful, 
+            // if not, it means the payment is pending/failed, this would be just extra field so dropping it
+            //$table->string('status');
             $table->string('customer_id');
             $table->timestamps();
 

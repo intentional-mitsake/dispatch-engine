@@ -37,7 +37,7 @@ class DispatchCommand extends Command
         //exception when the job fails, so failure is to be handled in catch block
         //$failure = true;// flag to check if job failed
              match($dispatch->type) {// match is like switch case
-               'payment' => (new PaymentHandler())->handle($dispatch, true),// if payment then call payment handler
+               'payment' => (new PaymentHandler())->handle($dispatch, false),// if payment then call payment handler
            };
            $dispatch->update([
                'status' => 'completed'

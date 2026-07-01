@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 class DispatchController extends Controller
 {
     public function store(Request $request) {  // Post request
+    // validate() automatically returns a 422 response if validation fails, so we don't need to handle that manually
         $validated = $request->validate([ // validate incoming request-->for things like sql injection
             'type' => 'required|string',
             'payload' => 'required|array',
@@ -21,6 +22,10 @@ class DispatchController extends Controller
         // basic sql to find the first row in the table with the same idempotency key
         $existingDispatch = Dispatch::where('idempotency_key', $validated['idempotency_key'])->first();
         if ($existingDispatch) {
+            if($existingDispatch->type !== $validated['type'] || $existingDispatch->payload !== $validated['payload']) {
+                Log::error("Idempotency key conflict: Existing dispatch has different type or payload for idempotency key: " . $validated['idempotency_key']);
+                return response()->json(['message' => 'Idempotency key conflict'], 409); // Conflict so 409 error code is returned
+            }
             Log::info("Duplicate dispatch request received with idempotency key: " . $validated['idempotency_key']);
             return response()->json(['message' => 'Duplicate request'], 200); // OK, move on
         }

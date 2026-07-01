@@ -27,6 +27,7 @@ class PaymentHandler
         // no need to retry if its already charged, so putting this before retry initiation block
         if ($this->alreadyCharged($dispatch)) {
             Log::info("Payment already completed for dispatch {$dispatch->payload['customer_id']}");
+            // returning here to avoid retrying the job if it has already been charged, 
             return;
         }
 

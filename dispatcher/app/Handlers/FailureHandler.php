@@ -10,6 +10,7 @@ class FailureHandler
     private const MAX_ATTEMPTS = 5;
     // ref from HackerOne
     public function handle(Dispatch $dispatch, \Throwable $exception) {
+        Log::error("Job {$dispatch->id} proessing failed with error: {$exception->getMessage()}");
         $dispatch->increment('attempts');
         $dispatch->refresh(); // reloads the model from updated values in database
         // only change status to failed if the max attempts has been reached

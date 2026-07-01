@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dispatch;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 
 class DispatchController extends Controller
@@ -15,10 +16,12 @@ class DispatchController extends Controller
             'payload.customer_id' => 'required_if:type,payment|string', // if type is payment then customer_id is required and must be a string
             'idempotency_key' => 'required|string',
         ]);
+        Log::info("Dispatch request received: " . json_encode($validated));
 
         // basic sql to find the first row in the table with the same idempotency key
         $existingDispatch = Dispatch::where('idempotency_key', $validated['idempotency_key'])->first();
         if ($existingDispatch) {
+            Log::info("Duplicate dispatch request received with idempotency key: " . $validated['idempotency_key']);
             return response()->json(['message' => 'Duplicate request'], 200); // OK, move on
         }
 
@@ -30,6 +33,7 @@ class DispatchController extends Controller
             // so we can create idempotency key at client side and check if it is unique to prevent duplicate requests
             'idempotency_key' => $validated['idempotency_key'],
         ]);
+        Log::info("Dispatch created with ID: {$dispatch->id} and idempotency key: {$dispatch->idempotency_key}");
         return response()->json(['message' => 'Dispatch created successfully', 'data' => $dispatch], 201);
     }
 

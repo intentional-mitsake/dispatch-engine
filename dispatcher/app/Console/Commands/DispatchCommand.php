@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Log;
 use App\Handlers\FailureHandler;
 use App\Handlers\InventoryHandler;
 
-#[Signature('worker:claim')]
+#[Signature('worker:claim {name}')]
 #[Description('Claim pending jobs')]
 class DispatchCommand extends Command
 {
@@ -22,7 +22,8 @@ class DispatchCommand extends Command
     public function handle()
     {
         while(true) {
-            $claimedDispatch = (new DispatchClaimer())->claim();
+            $name = $this->argument('name') ?? gethostname();
+            $claimedDispatch = (new DispatchClaimer())->claim($name);
             if(!$claimedDispatch) {
                 Log::debug('No jobs to process: Sleeping');
                 sleep(4);// sleep for 4 seconds

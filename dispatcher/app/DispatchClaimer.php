@@ -10,11 +10,11 @@ use Illuminate\Support\Str;
 class DispatchClaimer
 {
     // this will be the actual func called for claiming in the command
-    public function claim(): ?Dispatch // nullable return-->could be null or a Dispatch
+    public function claim(string $name): ?Dispatch // nullable return-->could be null or a Dispatch
     {
         // this is auto transaction, could do manual with try/cathc blokc using DB::beginTransaction();
         // while using auto method, rollback and commit is handled automatically
-       return DB::transaction(function () {// takes in closure(anon func) & thru use keyword can access external vars --> function () use $stuff {}
+       return DB::transaction(function () use ($name) {// takes in closure(anon func) & thru use keyword can access external vars --> function () use $stuff {}
            $claimedDispatch = Dispatch::where('status', 'pending')->where('available_at', '<=', now())
            ->lock('FOR UPDATE SKIP LOCKED') //  does both; lock for update and skip locked
            ->first(); 
@@ -28,7 +28,7 @@ class DispatchClaimer
             $claimedDispatch->update([
                 'status' => 'processing',
                 'claimed_at' => now(),
-                'claimed_by' => gethostname(),
+                'claimed_by' => $name ?? gethostname(),
             ]);
 
            return $claimedDispatch;

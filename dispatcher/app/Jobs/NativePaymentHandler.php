@@ -4,17 +4,22 @@ namespace App\Jobs;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
+use App\Models\Dispatch;
+use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Contracts\Queue\ShouldBeUnique;
+use Illuminate\Support\Facades\Log;
 
 // ref from Laravel docs
 class NativePaymentHandler implements ShouldQueue, ShouldBeUnique
 {
     use Queueable;
+    use Dispatchable; // allows the job to be dispatched to the queue 
 
     // these two are built-in properties  
     // they have default values but can be overridden in the job class like here:
     public $tries = 5;
     public $backoff = [2, 4, 8, 16, 32]; // exponential backoff for retries
-    public function __construct(private array $payload)
+    public function __construct(private Dispatch $dispatch)
     {
     }
     // also built-in for shoulbeunique, gets the unique id for the job, 
@@ -22,7 +27,7 @@ class NativePaymentHandler implements ShouldQueue, ShouldBeUnique
     // i.e idempotency
     public function uniqueId(): string
     {
-        return $this->payload['customer_id'];
+        return $this->dispatch->id;// could also use idemptency_key here
     }
 
 
@@ -33,6 +38,6 @@ class NativePaymentHandler implements ShouldQueue, ShouldBeUnique
             throw new \Exception('Payment failed');
         }
 
-        Log::info('Payment completed for dispatch ' . $this->payload['customer_id']);
+        Log::info('Payment completed for dispatch ' . $this->dispatch->payload['customer_id']);
     }
 }

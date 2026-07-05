@@ -23,13 +23,15 @@ class RateLimiter
                 // redis keys come first, then the arguments
                 "IP" . $rateLimitKey, //keys-ARGV[1]
                 10, // capacity-ARGV[1]
-                2, // refill rate-ARGV[2]
+                1, // refill rate-ARGV[2]
                 time(), // current time in seconds-ARGV[3]
                 1 // cost of the request-ARGV[4]
             );
+            Log::info("Status: $result[0]");
             // result will get an array of 2 elements, first is the remaining tokens, second is the time to wait in seconds
             // so in go i used []interface{} to store any value that comes
-            if($result[0] == 0){
+            if(!$result[0]){
+                Log::info("Rate limit exceeded: $result[1] tokens left");
                 return response()->json(['error' => 'Rate limit exceeded'], 429);
             }
             Log::info("Rate limit not exceeded: $result[1] tokens left");

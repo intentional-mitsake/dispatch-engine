@@ -46,7 +46,9 @@ class LoadTest extends Command
 
         while(true){
             $completed = Dispatch::where('status', 'completed')->count();
-            if($completed >= $totalDispatches) {
+            $failed = Dispatch::where('status', 'failed')->count();
+            $processed = $completed + $failed; // there will inevitably be some failed dispatches, so we need to count them as well
+            if($processed >= $totalDispatches) {
                 Log::info("All dispatches completed. Stopping the pool.");
                 $pool->stop();
                 Log::info("Using DB timestamps to calculate total time taken for all dispatches to complete");

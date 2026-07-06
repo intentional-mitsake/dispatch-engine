@@ -15,7 +15,9 @@ class DispatchClaimer
         // this is auto transaction, could do manual with try/cathc blokc using DB::beginTransaction();
         // while using auto method, rollback and commit is handled automatically
        return DB::transaction(function () use ($name) {// takes in closure(anon func) & thru use keyword can access external vars --> function () use $stuff {}
-           $claimedDispatch = Dispatch::where('status', 'pending')->where('available_at', '<=', now())
+           $claimedDispatch = Dispatch::where('status', 'pending')
+           ->whereNull('available_at')// some bug was making it null
+           ->orWhere('available_at', '<=', now())
            ->lock('FOR UPDATE SKIP LOCKED') //  does both; lock for update and skip locked
            ->first(); 
            // pretty much what the name ssays, locks the selected row for update 

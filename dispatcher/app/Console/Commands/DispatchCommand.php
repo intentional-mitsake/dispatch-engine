@@ -21,14 +21,16 @@ class DispatchCommand extends Command
      */
     public function handle()
     {
+        $name = $this->argument('name') ?? gethostname();
+        //$lastClaimedTime = time();
         while(true) {
-            $name = $this->argument('name') ?? gethostname();
             $claimedDispatch = (new DispatchClaimer())->claim($name);
             if(!$claimedDispatch) {
                 Log::debug('No jobs to process: Sleeping');
                 sleep(4);// sleep for 4 seconds
                 continue;
             }
+           // $lastClaimedTime = time();
             Log::info("Job {$claimedDispatch->id} proessing started");
             $this->process($claimedDispatch);
         }

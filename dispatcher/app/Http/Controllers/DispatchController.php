@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class DispatchController extends Controller
 {
+    public function index() {
+        return Dispatch::latest()->limit(50)->get(
+            [// slow
+                'id','type', 'status', 'attempts', 'created_at'
+            ]
+        );// get the latest 50 dispatches
+    }
     public function store(Request $request) {  // Post request
     // validate() automatically returns a 422 response if validation fails, so we don't need to handle that manually
         $validated = $request->validate([ // validate incoming request-->for things like sql injection
@@ -39,6 +46,7 @@ class DispatchController extends Controller
             // this means if user clicks on the button multiple times it will register as multiple requests
             // so we can create idempotency key at client side and check if it is unique to prevent duplicate requests
             'idempotency_key' => $validated['idempotency_key'],
+            'available_at' => now(),
         ]);
         Log::info("Dispatch created with ID: {$dispatch->id} and idempotency key: {$dispatch->idempotency_key}");
         return response()->json(['message' => 'Dispatch created successfully', 'data' => $dispatch], 201);

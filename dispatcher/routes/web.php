@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DispatchController;
+use App\Http\Controllers\StartWorkers;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', fn() => view('index'));

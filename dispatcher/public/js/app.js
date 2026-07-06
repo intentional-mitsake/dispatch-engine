@@ -1,4 +1,4 @@
-const POLL_INTERVAL  = 5000;  // ms — how often to refresh jobs + stats
+const POLL_INTERVAL  = 3000;  // ms — how often to refresh jobs + stats
 const MAX_JOBS       = 50;    // max rows shown in job list
 const CHART_POINTS   = 20;    // throughput chart history length
 const CSRF           = document.querySelector('meta[name="csrf-token"]').content;
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTypeToggle();
     refreshStats();
     refreshJobs();
-    setInterval(refreshStats, 2000);
+    setInterval(refreshStats, POLL_INTERVAL);
     setInterval(refreshJobs, POLL_INTERVAL);
 });
 
@@ -134,27 +134,21 @@ async function fire50() {
     result.className = 'msg-info';
     result.textContent = 'Firing 50 jobs...';
 
-    let succeeded = 0;
-    let failed    = 0;
-
-    // fire all 50 in parallel
-    await Promise.allSettled(
-        Array.from({ length: 50 }, (_, i) =>
-            post('/api/dispatches', {
-                type:            'payment',
-                idempotency_key: crypto.randomUUID(),
-                payload: {
-                    amount:      49.99,
-                    customer_id: 'demo-cust-' + i,
-                },
-            })
-            .then(r => r.ok ? succeeded++ : failed++)
-            .catch(() => failed++)
-        )
-    );
-
-    result.className = succeeded > 0 ? 'msg-success' : 'msg-error';
-    result.textContent = `${succeeded} submitted${failed > 0 ? `, ${failed} failed` : ''}`;
+    try {
+        const res  = await post('/api/dispatches/batch', {
+            count: 50,
+            type: 'payment',
+            payload: { amount: 49.99, customer_id: 'demo-cust' },
+        });
+        const data = await res.json();
+        result.className = res.ok ? 'msg-success' : 'msg-error';
+        result.textContent = res.ok
+            ? `${data.created} jobs created`
+            : (data.message ?? 'Request failed');
+    } catch {
+        result.className = 'msg-error';
+        result.textContent = 'Could not reach server';
+    }
 
     btn.disabled = false;
 }

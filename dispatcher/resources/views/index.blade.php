@@ -91,7 +91,9 @@
                 {{-- Throughput chart --}}
                 <div class="card">
                     <h2>Throughput</h2>
-                    <canvas id="throughput-chart" height="140"></canvas>
+                    <div style="position: relative; height: 140px;">
+                        <canvas id="throughput-chart"></canvas>
+                    </div>
                 </div>
  
             </div>

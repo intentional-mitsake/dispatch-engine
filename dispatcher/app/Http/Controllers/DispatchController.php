@@ -5,15 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Dispatch;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class DispatchController extends Controller
 {
-    public function index() {
-        return Dispatch::latest()->limit(50)->get(
-            [// slow
-                'id','type', 'status', 'attempts', 'created_at'
-            ]
-        );// get the latest 50 dispatches
+    public function index(Request $request) {
+        $limit = min((int) $request->input('limit', 30), 100);
+
+    $jobs = Cache::remember('dispatches_list_' . $limit, 10, fn() =>
+        Dispatch::latest()->limit($limit)->get()
+    );
+
+    return response()->json($jobs);
     }
     public function store(Request $request) {  // Post request
     // validate() automatically returns a 422 response if validation fails, so we don't need to handle that manually
@@ -59,4 +62,29 @@ class DispatchController extends Controller
         // unless u tell it to not look for primary key, it will look for id auto
         return response()->json(['message' => 'Dispatch retrieved successfully', 'data' => $dispatch], 200);
     }
+
+public function batch(Request $request)
+{
+    $count   = min((int) $request->input('count', 50), 100); // cap it
+    $type    = $request->input('type', 'payment');
+    $payload = $request->input('payload', []);
+
+    $rows = [];
+    $now  = now();
+
+    for ($i = 0; $i < $count; $i++) {
+        $rows[] = [
+            'type'            => $type,
+            'payload'         => json_encode($payload),
+            'status'          => 'pending',
+            'idempotency_key' => \Str::uuid(),
+            'created_at'      => $now,
+            'updated_at'      => $now,
+        ];
+    }
+
+    Dispatch::insert($rows); // single INSERT — much faster than 50 round-trips
+
+    return response()->json(['created' => $count]);
+}
 }

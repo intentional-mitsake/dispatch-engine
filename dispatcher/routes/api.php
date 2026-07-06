@@ -24,3 +24,4 @@ Route::get('/dispatches', [DispatchController::class, 'index']);
 Route::get('/dispatches/{dispatch}', [DispatchController::class, 'show']);
 
 Route::get('/stats', [StatsController::class, 'index']);
+Route::post('/dispatches/batch', [DispatchController::class, 'batch']);

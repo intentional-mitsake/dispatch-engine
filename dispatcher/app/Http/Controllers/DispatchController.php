@@ -81,6 +81,7 @@ public function batch(Request $request)
             'created_at'      => $now,
             'updated_at'      => $now,
         ];
+        Log::info("Dispatch of type {$type} created with idempotency key: {$rows[$i]['idempotency_key']}");
     }
 
     Dispatch::insert($rows); // single INSERT — much faster than 50 round-trips

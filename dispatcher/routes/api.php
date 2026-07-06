@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Middleware\RateLimiter;
 use App\Http\Controllers\DispatchController;
 use App\Http\Controllers\StatsController;
+use App\Http\Controllers\WorkerController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();

@@ -228,3 +228,4 @@ function timeAgo(dateStr) {
     if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
     return Math.floor(diff / 3600) + 'h ago';
 }
+

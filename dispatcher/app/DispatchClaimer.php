@@ -16,8 +16,10 @@ class DispatchClaimer
         // while using auto method, rollback and commit is handled automatically
        return DB::transaction(function () use ($name) {// takes in closure(anon func) & thru use keyword can access external vars --> function () use $stuff {}
            $claimedDispatch = Dispatch::where('status', 'pending')
-           ->whereNull('available_at')// some bug was making it null
-           ->orWhere('available_at', '<=', now())
+           ->where(function ($query) { // using without anon func wrapping 
+           //causes workers to claim completed jobs also if available<now
+            $query->whereNull('available_at')->orWhere('available_at', '<=', now());
+           })
            ->lock('FOR UPDATE SKIP LOCKED') //  does both; lock for update and skip locked
            ->first(); 
            // pretty much what the name ssays, locks the selected row for update 

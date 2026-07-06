@@ -14,7 +14,7 @@ class ProductSeeder extends Seeder
         for($i = 1; $i <= 10; $i++) {
             Products::create([
                 'name' => "Product $i",
-                'stock' => rand(60, 140), // random stock between 60 and 140
+                'stock' => rand(1, 16), // random stock between 60 and 140
                 'price' => rand(100, 1000) / 10, // random price between 10.0 and 100.0
             ]);
         }

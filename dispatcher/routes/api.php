@@ -23,4 +23,4 @@ Route::get('/dispatches', [DispatchController::class, 'index']);
 
 Route::get('/dispatches/{dispatch}', [DispatchController::class, 'show']);
 
-Route::get('/stat', [StatsController::class, 'index']);
+Route::get('/stats', [StatsController::class, 'index']);

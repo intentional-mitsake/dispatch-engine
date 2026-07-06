@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use App\Models\Dispatch;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class StatsController extends Controller
 {
@@ -16,7 +19,7 @@ class StatsController extends Controller
             // jobs completed in the last minute
             $throughput = Dispatch::where('status', 'completed')->where('updated_at', '>=', now()->subMinute())->count();
             // failed jobs
-            $totalProcessed = Dipatch::whereIn('status', ['completed', 'failed'])->count();
+            $totalProcessed = Dispatch::whereIn('status', ['completed', 'failed'])->count();
             $failed = Dispatch::where('status', 'failed')->count();
             $failRate = $totalProcessed > 0? round(($failed / $totalProcessed) * 100, 2) : 0;
 
@@ -42,5 +45,6 @@ class StatsController extends Controller
         });
 
         return response()->json($data);
+       // Log::info($data);
     }
 }

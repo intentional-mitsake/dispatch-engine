@@ -1,0 +1,360 @@
+[2026-07-06 10:53:06] local.INFO: Starting a process pool with 8 workers  
+[2026-07-06 10:53:06] local.INFO: Starting worker 0  
+[2026-07-06 10:53:06] local.INFO: Starting worker 1  
+[2026-07-06 10:53:06] local.INFO: Starting worker 2  
+[2026-07-06 10:53:06] local.INFO: Starting worker 3  
+[2026-07-06 10:53:06] local.INFO: Starting worker 4  
+[2026-07-06 10:53:06] local.INFO: Starting worker 5  
+[2026-07-06 10:53:06] local.INFO: Starting worker 6  
+[2026-07-06 10:53:07] local.INFO: Starting worker 7  
+[2026-07-06 10:53:07] local.INFO: Starting watchdog process  
+[2026-07-06 10:53:09] local.INFO: Job 1 proessing started  
+[2026-07-06 10:53:10] local.INFO: Job 2 proessing started  
+[2026-07-06 10:53:10] local.INFO: Job 3 proessing started  
+[2026-07-06 10:53:10] local.INFO: Job 4 proessing started  
+[2026-07-06 10:53:11] local.INFO: Payment completed for dispatch user-a8b5f03b-0c8d-4f8d-af51-0b0ea28d3c99  
+[2026-07-06 10:53:11] local.INFO: Job 2 proessing completed  
+[2026-07-06 10:53:11] local.INFO: Job 5 proessing started  
+[2026-07-06 10:53:11] local.INFO: Job 6 proessing started  
+[2026-07-06 10:53:11] local.INFO: Job 7 proessing started  
+[2026-07-06 10:53:11] local.INFO: Job 8 proessing started  
+[2026-07-06 10:53:11] local.INFO: Job 9 proessing started  
+[2026-07-06 10:53:11] local.DEBUG: No stuck jobs to recover  
+[2026-07-06 10:53:11] local.DEBUG: Watchdog is sleeping for 20 seconds  
+[2026-07-06 10:53:11] local.INFO: Job 10 proessing started  
+[2026-07-06 10:53:11] local.INFO: Job 11 proessing started  
+[2026-07-06 10:53:12] local.INFO: Job 12 proessing started  
+[2026-07-06 10:53:12] local.INFO: Payment completed for dispatch user-b50ae39e-b81c-4f41-9095-23f781f7611a  
+[2026-07-06 10:53:12] local.INFO: Job 3 proessing completed  
+[2026-07-06 10:53:12] local.INFO: Job 13 proessing started  
+[2026-07-06 10:53:12] local.INFO: Job 14 proessing started  
+[2026-07-06 10:53:12] local.INFO: Job 15 proessing started  
+[2026-07-06 10:53:12] local.INFO: Job 16 proessing started  
+[2026-07-06 10:53:12] local.INFO: Job 17 proessing started  
+[2026-07-06 10:53:12] local.INFO: Job 18 proessing started  
+[2026-07-06 10:53:12] local.ERROR: Payment failed for dispatch user-f67987b4-abec-47d2-afab-27c96af728c4  
+[2026-07-06 10:53:12] local.ERROR: Job 10 proessing failed with error: Payment failed  
+[2026-07-06 10:53:12] local.INFO: Delaying job 10 retry attempt for 5 seconds  
+[2026-07-06 10:53:13] local.INFO: Job 19 proessing started  
+[2026-07-06 10:53:13] local.DEBUG: No stuck jobs to recover  
+[2026-07-06 10:53:13] local.DEBUG: Watchdog is sleeping for 20 seconds  
+[2026-07-06 10:53:13] local.INFO: Payment completed for dispatch user-d5f5dcbf-2e29-4f59-951b-d055206e3c26  
+[2026-07-06 10:53:13] local.INFO: Job 15 proessing completed  
+[2026-07-06 10:53:13] local.INFO: Job 20 proessing started  
+[2026-07-06 10:53:13] local.ERROR: Payment failed for dispatch user-00190e9a-aae9-4e22-8744-6daec7cb6cc6  
+[2026-07-06 10:53:13] local.ERROR: Job 17 proessing failed with error: Payment failed  
+[2026-07-06 10:53:13] local.INFO: Delaying job 17 retry attempt for 2 seconds  
+[2026-07-06 10:53:13] local.INFO: Job 21 proessing started  
+[2026-07-06 10:53:13] local.INFO: Inventory updated for dispatch 21: Product 3 stock reduced by 3  
+[2026-07-06 10:53:13] local.INFO: Job 21 proessing completed  
+[2026-07-06 10:53:13] local.INFO: Job 22 proessing started  
+[2026-07-06 10:53:13] local.INFO: Inventory updated for dispatch 22: Product 5 stock reduced by 4  
+[2026-07-06 10:53:13] local.INFO: Job 22 proessing completed  
+[2026-07-06 10:53:13] local.INFO: Job 23 proessing started  
+[2026-07-06 10:53:13] local.INFO: Inventory updated for dispatch 23: Product 1 stock reduced by 4  
+[2026-07-06 10:53:13] local.INFO: Job 23 proessing completed  
+[2026-07-06 10:53:13] local.INFO: Job 24 proessing started  
+[2026-07-06 10:53:13] local.INFO: Inventory updated for dispatch 24: Product 2 stock reduced by 1  
+[2026-07-06 10:53:13] local.INFO: Job 24 proessing completed  
+[2026-07-06 10:53:13] local.INFO: Job 25 proessing started  
+[2026-07-06 10:53:13] local.INFO: Inventory updated for dispatch 25: Product 8 stock reduced by 3  
+[2026-07-06 10:53:13] local.INFO: Job 25 proessing completed  
+[2026-07-06 10:53:13] local.INFO: Job 26 proessing started  
+[2026-07-06 10:53:13] local.INFO: Inventory updated for dispatch 26: Product 5 stock reduced by 1  
+[2026-07-06 10:53:13] local.INFO: Job 26 proessing completed  
+[2026-07-06 10:53:13] local.INFO: Job 27 proessing started  
+[2026-07-06 10:53:13] local.INFO: Inventory updated for dispatch 27: Product 8 stock reduced by 1  
+[2026-07-06 10:53:13] local.INFO: Job 27 proessing completed  
+[2026-07-06 10:53:13] local.INFO: Job 28 proessing started  
+[2026-07-06 10:53:13] local.INFO: Inventory updated for dispatch 28: Product 9 stock reduced by 5  
+[2026-07-06 10:53:13] local.INFO: Job 28 proessing completed  
+[2026-07-06 10:53:13] local.INFO: Job 29 proessing started  
+[2026-07-06 10:53:13] local.INFO: Inventory updated for dispatch 29: Product 4 stock reduced by 1  
+[2026-07-06 10:53:13] local.INFO: Job 29 proessing completed  
+[2026-07-06 10:53:13] local.INFO: Job 30 proessing started  
+[2026-07-06 10:53:13] local.INFO: Inventory updated for dispatch 30: Product 8 stock reduced by 5  
+[2026-07-06 10:53:13] local.INFO: Job 30 proessing completed  
+[2026-07-06 10:53:13] local.INFO: Job 31 proessing started  
+[2026-07-06 10:53:13] local.INFO: Inventory updated for dispatch 31: Product 3 stock reduced by 5  
+[2026-07-06 10:53:13] local.INFO: Job 31 proessing completed  
+[2026-07-06 10:53:13] local.INFO: Job 32 proessing started  
+[2026-07-06 10:53:13] local.INFO: Inventory updated for dispatch 32: Product 6 stock reduced by 2  
+[2026-07-06 10:53:13] local.INFO: Job 32 proessing completed  
+[2026-07-06 10:53:13] local.INFO: Job 33 proessing started  
+[2026-07-06 10:53:13] local.INFO: Inventory updated for dispatch 33: Product 1 stock reduced by 5  
+[2026-07-06 10:53:13] local.INFO: Job 33 proessing completed  
+[2026-07-06 10:53:14] local.INFO: Job 34 proessing started  
+[2026-07-06 10:53:14] local.ERROR: Inventory failed for dispatch 34  
+[2026-07-06 10:53:14] local.ERROR: Job 34 proessing failed with error: Insufficient stock for product 3  
+[2026-07-06 10:53:14] local.INFO: Delaying job 34 retry attempt for 5 seconds  
+[2026-07-06 10:53:14] local.INFO: Job 35 proessing started  
+[2026-07-06 10:53:14] local.ERROR: Inventory failed for dispatch 35  
+[2026-07-06 10:53:14] local.ERROR: Job 35 proessing failed with error: Insufficient stock for product 8  
+[2026-07-06 10:53:14] local.INFO: Delaying job 35 retry attempt for 5 seconds  
+[2026-07-06 10:53:14] local.INFO: Job 36 proessing started  
+[2026-07-06 10:53:14] local.INFO: Inventory updated for dispatch 36: Product 10 stock reduced by 4  
+[2026-07-06 10:53:14] local.INFO: Job 36 proessing completed  
+[2026-07-06 10:53:14] local.INFO: Job 37 proessing started  
+[2026-07-06 10:53:14] local.INFO: Inventory updated for dispatch 37: Product 1 stock reduced by 2  
+[2026-07-06 10:53:14] local.INFO: Job 37 proessing completed  
+[2026-07-06 10:53:14] local.INFO: Job 38 proessing started  
+[2026-07-06 10:53:14] local.INFO: Inventory updated for dispatch 38: Product 4 stock reduced by 2  
+[2026-07-06 10:53:14] local.INFO: Job 38 proessing completed  
+[2026-07-06 10:53:14] local.INFO: Job 39 proessing started  
+[2026-07-06 10:53:14] local.INFO: Inventory updated for dispatch 39: Product 7 stock reduced by 3  
+[2026-07-06 10:53:14] local.INFO: Job 39 proessing completed  
+[2026-07-06 10:53:14] local.INFO: Job 40 proessing started  
+[2026-07-06 10:53:14] local.ERROR: Inventory failed for dispatch 40  
+[2026-07-06 10:53:14] local.ERROR: Job 40 proessing failed with error: Insufficient stock for product 6  
+[2026-07-06 10:53:14] local.INFO: Delaying job 40 retry attempt for 3 seconds  
+[2026-07-06 10:53:14] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:14] local.INFO: Payment completed for dispatch user-db3e514b-3bef-4e6c-9afb-9483f890b011  
+[2026-07-06 10:53:14] local.INFO: Job 12 proessing completed  
+[2026-07-06 10:53:14] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:14] local.INFO: Payment completed for dispatch user-463ccdd4-a2f8-46d1-86fb-e8b7c210a7bb  
+[2026-07-06 10:53:14] local.INFO: Job 8 proessing completed  
+[2026-07-06 10:53:14] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:14] local.INFO: Payment completed for dispatch user-244ece8c-75d2-42f7-b990-8160fb2dc9c2  
+[2026-07-06 10:53:14] local.INFO: Job 20 proessing completed  
+[2026-07-06 10:53:14] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:15] local.INFO: Payment completed for dispatch user-bb98e2e5-7138-4cd5-8a12-d8a7303a560e  
+[2026-07-06 10:53:15] local.INFO: Job 7 proessing completed  
+[2026-07-06 10:53:15] local.INFO: Job 17 proessing started  
+[2026-07-06 10:53:15] local.INFO: Payment completed for dispatch user-96caea13-2201-4670-bd55-01d29afa3d35  
+[2026-07-06 10:53:15] local.INFO: Job 1 proessing completed  
+[2026-07-06 10:53:15] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:16] local.INFO: Payment completed for dispatch user-cde4d910-aaa4-4b3e-918c-b2a8cf324b95  
+[2026-07-06 10:53:16] local.INFO: Payment completed for dispatch user-4782daf7-0352-451d-a27b-7270d86430f3  
+[2026-07-06 10:53:16] local.INFO: Job 9 proessing completed  
+[2026-07-06 10:53:16] local.INFO: Job 16 proessing completed  
+[2026-07-06 10:53:16] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:16] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:17] local.INFO: Payment completed for dispatch user-1282fc25-56e8-40cf-888f-eb0e99a959d7  
+[2026-07-06 10:53:17] local.INFO: Job 11 proessing completed  
+[2026-07-06 10:53:17] local.INFO: Job 10 proessing started  
+[2026-07-06 10:53:17] local.INFO: Payment completed for dispatch user-657e6f7d-2ef2-401c-ae72-3fa8405881b6  
+[2026-07-06 10:53:17] local.INFO: Job 5 proessing completed  
+[2026-07-06 10:53:17] local.INFO: Job 40 proessing started  
+[2026-07-06 10:53:17] local.ERROR: Inventory failed for dispatch 40  
+[2026-07-06 10:53:17] local.ERROR: Job 40 proessing failed with error: Insufficient stock for product 6  
+[2026-07-06 10:53:17] local.INFO: Delaying job 40 retry attempt for 5 seconds  
+[2026-07-06 10:53:17] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:17] local.INFO: Payment completed for dispatch user-78d097fc-9182-4580-8e82-93f16f379198  
+[2026-07-06 10:53:17] local.INFO: Job 6 proessing completed  
+[2026-07-06 10:53:17] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:18] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:18] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:18] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:18] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:19] local.INFO: Payment completed for dispatch user-b52e77e7-8088-40f0-ae6c-4280e2d82b3a  
+[2026-07-06 10:53:19] local.INFO: Job 14 proessing completed  
+[2026-07-06 10:53:19] local.INFO: Job 34 proessing started  
+[2026-07-06 10:53:19] local.ERROR: Inventory failed for dispatch 34  
+[2026-07-06 10:53:19] local.ERROR: Job 34 proessing failed with error: Insufficient stock for product 3  
+[2026-07-06 10:53:19] local.INFO: Delaying job 34 retry attempt for 7 seconds  
+[2026-07-06 10:53:19] local.INFO: Job 35 proessing started  
+[2026-07-06 10:53:19] local.ERROR: Inventory failed for dispatch 35  
+[2026-07-06 10:53:19] local.ERROR: Job 35 proessing failed with error: Insufficient stock for product 8  
+[2026-07-06 10:53:19] local.INFO: Delaying job 35 retry attempt for 7 seconds  
+[2026-07-06 10:53:19] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:19] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:20] local.INFO: Payment completed for dispatch user-b7c443c8-30a8-4e66-9c2f-ea311ca50ecf  
+[2026-07-06 10:53:20] local.INFO: Job 4 proessing completed  
+[2026-07-06 10:53:20] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:20] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:20] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:21] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:21] local.INFO: Payment completed for dispatch user-cc61f6f3-54f7-4627-bce5-b1092a025776  
+[2026-07-06 10:53:21] local.INFO: Job 13 proessing completed  
+[2026-07-06 10:53:21] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:21] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:21] local.ERROR: Payment failed for dispatch user-00190e9a-aae9-4e22-8744-6daec7cb6cc6  
+[2026-07-06 10:53:21] local.ERROR: Job 17 proessing failed with error: Payment failed  
+[2026-07-06 10:53:21] local.INFO: Delaying job 17 retry attempt for 6 seconds  
+[2026-07-06 10:53:21] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:22] local.INFO: Payment completed for dispatch user-28b58929-a745-47d0-8721-f5186b9401df  
+[2026-07-06 10:53:22] local.INFO: Job 19 proessing completed  
+[2026-07-06 10:53:22] local.INFO: Job 40 proessing started  
+[2026-07-06 10:53:22] local.ERROR: Inventory failed for dispatch 40  
+[2026-07-06 10:53:22] local.ERROR: Job 40 proessing failed with error: Insufficient stock for product 6  
+[2026-07-06 10:53:22] local.INFO: Delaying job 40 retry attempt for 8 seconds  
+[2026-07-06 10:53:22] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:22] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:22] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:22] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:22] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:22] local.INFO: Payment completed for dispatch user-54f08833-465b-49b5-bc7b-e7bafe82aa41  
+[2026-07-06 10:53:22] local.INFO: Job 18 proessing completed  
+[2026-07-06 10:53:22] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:23] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:23] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:24] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:24] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:25] local.INFO: Payment completed for dispatch user-f67987b4-abec-47d2-afab-27c96af728c4  
+[2026-07-06 10:53:25] local.INFO: Job 10 proessing completed  
+[2026-07-06 10:53:25] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:25] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:25] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:25] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:25] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:26] local.INFO: Job 34 proessing started  
+[2026-07-06 10:53:26] local.ERROR: Inventory failed for dispatch 34  
+[2026-07-06 10:53:26] local.ERROR: Job 34 proessing failed with error: Insufficient stock for product 3  
+[2026-07-06 10:53:26] local.INFO: Delaying job 34 retry attempt for 9 seconds  
+[2026-07-06 10:53:26] local.INFO: Job 35 proessing started  
+[2026-07-06 10:53:26] local.ERROR: Inventory failed for dispatch 35  
+[2026-07-06 10:53:26] local.ERROR: Job 35 proessing failed with error: Insufficient stock for product 8  
+[2026-07-06 10:53:26] local.INFO: Delaying job 35 retry attempt for 9 seconds  
+[2026-07-06 10:53:26] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:26] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:26] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:26] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:26] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:26] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:27] local.INFO: Job 17 proessing started  
+[2026-07-06 10:53:27] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:28] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:28] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:28] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:29] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:29] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:29] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:29] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:29] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:29] local.INFO: Payment completed for dispatch user-00190e9a-aae9-4e22-8744-6daec7cb6cc6  
+[2026-07-06 10:53:29] local.INFO: Job 17 proessing completed  
+[2026-07-06 10:53:29] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:30] local.INFO: Job 40 proessing started  
+[2026-07-06 10:53:30] local.ERROR: Inventory failed for dispatch 40  
+[2026-07-06 10:53:30] local.ERROR: Job 40 proessing failed with error: Insufficient stock for product 6  
+[2026-07-06 10:53:30] local.INFO: Delaying job 40 retry attempt for 19 seconds  
+[2026-07-06 10:53:30] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:30] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:30] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:30] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:30] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:30] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:31] local.DEBUG: No stuck jobs to recover  
+[2026-07-06 10:53:31] local.DEBUG: Watchdog is sleeping for 20 seconds  
+[2026-07-06 10:53:31] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:32] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:32] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:33] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:33] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:33] local.DEBUG: No stuck jobs to recover  
+[2026-07-06 10:53:33] local.DEBUG: Watchdog is sleeping for 20 seconds  
+[2026-07-06 10:53:33] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:33] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:33] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:33] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:34] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:34] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:34] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:34] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:34] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:34] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:35] local.INFO: Job 34 proessing started  
+[2026-07-06 10:53:35] local.ERROR: Inventory failed for dispatch 34  
+[2026-07-06 10:53:35] local.ERROR: Job 34 proessing failed with error: Insufficient stock for product 3  
+[2026-07-06 10:53:35] local.INFO: Delaying job 34 retry attempt for 19 seconds  
+[2026-07-06 10:53:35] local.INFO: Job 35 proessing started  
+[2026-07-06 10:53:35] local.ERROR: Inventory failed for dispatch 35  
+[2026-07-06 10:53:35] local.ERROR: Job 35 proessing failed with error: Insufficient stock for product 8  
+[2026-07-06 10:53:35] local.INFO: Delaying job 35 retry attempt for 17 seconds  
+[2026-07-06 10:53:35] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:36] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:36] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:36] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:37] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:37] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:37] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:37] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:37] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:37] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:38] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:38] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:38] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:38] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:38] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:38] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:39] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:40] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:40] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:41] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:41] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:41] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:41] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:41] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:41] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:42] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:42] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:42] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:42] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:42] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:43] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:43] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:44] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:44] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:44] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:45] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:45] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:45] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:45] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:45] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:45] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:46] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:46] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:46] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:46] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:46] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:47] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:47] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:48] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:48] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:49] local.INFO: Job 40 proessing started  
+[2026-07-06 10:53:49] local.ERROR: Inventory failed for dispatch 40  
+[2026-07-06 10:53:49] local.ERROR: Job 40 proessing failed with error: Insufficient stock for product 6  
+[2026-07-06 10:53:49] local.ERROR: Job 40 proessing failed {"error":"Insufficient stock for product 6"} 
+[2026-07-06 10:53:49] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:49] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:49] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:49] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:49] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:49] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:50] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:50] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:50] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:50] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:50] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:51] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:51] local.DEBUG: No stuck jobs to recover  
+[2026-07-06 10:53:51] local.DEBUG: Watchdog is sleeping for 20 seconds  
+[2026-07-06 10:53:51] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:52] local.INFO: Job 35 proessing started  
+[2026-07-06 10:53:52] local.ERROR: Inventory failed for dispatch 35  
+[2026-07-06 10:53:52] local.ERROR: Job 35 proessing failed with error: Insufficient stock for product 8  
+[2026-07-06 10:53:52] local.ERROR: Job 35 proessing failed {"error":"Insufficient stock for product 8"} 
+[2026-07-06 10:53:52] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:52] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:53] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:53] local.DEBUG: No stuck jobs to recover  
+[2026-07-06 10:53:53] local.DEBUG: Watchdog is sleeping for 20 seconds  
+[2026-07-06 10:53:53] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:53] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:53] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:53] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:53] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:54] local.INFO: Job 34 proessing started  
+[2026-07-06 10:53:54] local.ERROR: Inventory failed for dispatch 34  
+[2026-07-06 10:53:54] local.ERROR: Job 34 proessing failed with error: Insufficient stock for product 3  
+[2026-07-06 10:53:54] local.ERROR: Job 34 proessing failed {"error":"Insufficient stock for product 3"} 
+[2026-07-06 10:53:54] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:54] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:54] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:54] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:54] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:55] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:55] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:56] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:56] local.DEBUG: No jobs to process: Sleeping  
+[2026-07-06 10:53:56] local.DEBUG: No jobs to process: Sleeping  

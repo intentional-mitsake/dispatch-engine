@@ -29,7 +29,7 @@ async function refreshStats() {
 
         setText('stat-depth',      data.queue_depth);
         setText('stat-throughput', data.throughput);
-        setText('stat-failure',    data.failureRate + '%');
+        setText('stat-failure',    data.failure_rate + '%');
         setText('stat-p50',        data.latency.p50 + 's');
         setText('stat-p95',        data.latency.p95 + 's');
         setText('stat-p99',        data.latency.p99 + 's');

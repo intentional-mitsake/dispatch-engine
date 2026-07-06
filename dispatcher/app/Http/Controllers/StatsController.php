@@ -10,7 +10,7 @@ class StatsController extends Controller
     public function index() {
         // remember returns cahced value if it exists
         // else run the function, store for 5 seconds and then return it
-        return Cache::remember('stats', 5, function() {
+        $data = Cache::remember('stats', 5, function() {
             // number of pending jobs
             $pendingNum = Dispatch::where('status', 'pending')->count();
             // jobs completed in the last minute
@@ -29,7 +29,7 @@ class StatsController extends Controller
                 WHERE status = 'completed'
                 ");
 
-            return response()->json([
+            return [
                 'queue_depth' => $pendingNum,
                 'throughput' => $throughput, 
                 'failure_rate' => $failRate, 
@@ -38,7 +38,9 @@ class StatsController extends Controller
                     'p95' => round($latency->p95 ?? 0, 2),
                     'p99' => round($latency->p99 ?? 0, 2),
                     ]
-                ]);
+                ];
         });
+
+        return response()->json($data);
     }
 }

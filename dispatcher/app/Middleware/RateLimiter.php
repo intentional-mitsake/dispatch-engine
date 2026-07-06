@@ -22,8 +22,8 @@ class RateLimiter
                 1, // number of keys is always 2nd arg for eval
                 // redis keys come first, then the arguments
                 "IP" . $rateLimitKey, //keys-ARGV[1]
-                10, // capacity-ARGV[1]
-                1, // refill rate-ARGV[2]
+                100, // capacity-ARGV[1]
+                5, // refill rate-ARGV[2]
                 time(), // current time in seconds-ARGV[3]
                 1 // cost of the request-ARGV[4]
             );

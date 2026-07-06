@@ -241,9 +241,9 @@ php artisan loadtest:start --workers=8
 
 | Workers | Jobs | Duration | Throughput |
 |---|---:|---:|---:|
-| 1 | 1000 | — | — |
-| 4 | 1000 | — | — |
-| 8 | 1000 | — | — |
+| 1 | 1000 | 1599 seconds | 38 per minute |
+| 4 | 1000 | 429 seconds | 140 per minute |
+| 8 | 1000 | 230 seconds | 252 per minute |
 
 *Fill after final benchmark run.*
 
@@ -253,13 +253,15 @@ php artisan loadtest:start --workers=8
 
 | Claim | Evidence |
 |---|---|
-| No duplicate claims | Five concurrent worker logs |
+| No duplicate claims | 8 concurrent worker logs |
 | Stock never negative | Database state after concurrent reservations |
 | Crash recovery works | `kill -9` recovery logs |
 | Payment handler is idempotent | One `payment_records` row after repeated execution |
 | Invalid payloads rejected | `422` before queue insertion |
 | Conflicting idempotency rejected | `409` response |
 | Rate limiter works | Concurrent Postman tests |
+
+In docs/ directory.
 
 ---
 

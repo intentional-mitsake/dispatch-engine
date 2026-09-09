@@ -1,4 +1,8 @@
 # dispatch-engine
+![PHP](https://img.shields.io/badge/PHP-8-777BB4?logo=php&logoColor=white)
+![Laravel](https://img.shields.io/badge/Laravel-11-FF2D20?logo=laravel&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?logo=postgresql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-7-DC382D?logo=redis&logoColor=white)
  
 When you submit an order on a major platform, a queue runs in the background — charging cards, reserving stock, sending confirmations. This project builds that queue from scratch, without touching Laravel's built-in queue system.
  
